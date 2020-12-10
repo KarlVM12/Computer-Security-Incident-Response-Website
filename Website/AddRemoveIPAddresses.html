@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modify Report - IP Addresses</title>
+    </head>
+    <body>
+        <h1>Computer Security Incident Response Team Reports</h1>
+        <hr>
+        <h3>Modify an Incident Report - Add/Remove IP Addresses</h3>
+
+        <form method ="POST">
+            <label for ="incidentID">Incident ID</label> <br>
+            <input type ="text" name="incidentID" required><br>
+
+            <label for ="associationID">Association ID</label> <br>
+            <input type ="text" name="associationID" required><br>
+
+            <label for ="IPAddress">IP Address</label> <br>
+            <input type ="text" name="IPAddress" required><br><br>
+
+            <input type="submit" value="Add IP Address" formaction="AddIPAddress.php">
+            <input type="submit" value="Remove IP Address" formaction="RemoveIPAddress.php"><br>
+        </form>
+
+    </body>
+</html>
