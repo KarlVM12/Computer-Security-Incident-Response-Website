@@ -24,17 +24,32 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql = "SELECT * FROM incident WHERE incidentID=" . $_POST["incidentID"] . "";
+            $sql1 = "SELECT * FROM incident WHERE incidentID=" . $_POST["incidentID"] . "";
           
-            $result = $conn->query($sql);
+            $result1 = $conn->query($sql1);
            
-            if ($result->num_rows >  0) {
+            if ($result1->num_rows >  0) {
                 // output data of each row
-                while($row = $result->fetch_assoc()) {
+                while($row = $result1->fetch_assoc()) {
                     echo "incidentID: ". $row["incidentID"] . " - incidentType: " . $row["incidentType"] . 
                     " - creationDate: " . $row["creationDate"] . " - incidentState: " . $row["incidentState"] .
                     " - incidentName: " . $row["incidentName"] . " - handlerName: " . $row["handlerName"] . 
                     " - associationID: " . $row["associationID"] . "<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+
+            $sql2 = "SELECT * FROM comment WHERE incidentID=" . $_POST["incidentID"] . " ORDER BY commentDate DESC";
+          
+            $result2 = $conn->query($sql2);
+           
+            if ($result2->num_rows >  0) {
+                // output data of each row
+                while($row = $result2->fetch_assoc()) {
+                    echo "commentID: ". $row["commentID"] . " - incidentID: " . $row["incidentID"] . 
+                    " - commentDescription: " . $row["commentDescription"] . " - commentDate: " . $row["commentDate"] .
+                    " - handlerName: " . $row["handlerName"] . "<br>";
                 }
             } else {
                 echo "0 results";
