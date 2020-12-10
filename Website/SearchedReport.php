@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Report Request</title>
+        <title>Searched Report Request</title>
     </head>
     <body>
         <h1>Computer Security Incident Response Team Reports</h1>
         <hr>
-        
         <p>Report #<?php echo $_POST["incidentID"]; ?></p>
 
         <?php 
@@ -40,6 +39,8 @@
             } else {
                 echo "0 results";
             }
-		?>
+        ?>
+
     </body>
 </html>
+        
