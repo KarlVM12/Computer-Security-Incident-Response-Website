@@ -24,6 +24,7 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
+            // Prints complete Incident
             $sql1 = "SELECT * FROM incident WHERE incidentID=" . $_POST["incidentID"] . "";
           
             $result1 = $conn->query($sql1);
@@ -40,6 +41,7 @@
                 echo "0 results";
             }
 
+            // Prints comments from incident
             $sql2 = "SELECT * FROM comment WHERE incidentID=" . $_POST["incidentID"] . " ORDER BY commentDate DESC";
           
             $result2 = $conn->query($sql2);
@@ -54,8 +56,9 @@
             } else {
                 echo "0 results";
             }
-        ?>
 
+            $conn->close();
+        ?>
     </body>
 </html>
         
