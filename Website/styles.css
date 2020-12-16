@@ -1,0 +1,35 @@
+/*Header styles*/
+.header {
+  background-color: #0365e6;
+  height: 150px;
+  width: 100%;
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  color: whitesmoke;
+  font-family: sans-serif;
+  text-align: left;
+  margin-top: 35px;
+  padding-left: 50px;
+  font-size: 75px;
+}
+
+/*Body styles*/
+.body {
+  background-color: #1c1c1c;
+}
+
+.title {
+  color: whitesmoke;
+  text-align: center;
+  padding-top: 25px;
+  font-family: "arial";
+  font-size: 30px;
+}
+
+.content {
+  text-align: left;
+  margin-right: 30px;
+}
