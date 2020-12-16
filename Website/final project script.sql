@@ -1,4 +1,4 @@
-DROP DATABASE csirt;
+#DROP DATABASE csirt;
 CREATE DATABASE csirt;
 USE csirt;
 
@@ -114,19 +114,19 @@ INSERT INTO IPADDRESS VALUES (
 INSERT INTO IPADDRESS VALUES (
 	6789, '191.255.130.332', 726818);
     
-SELECT 
-    *
-FROM
-    INCIDENT;
-SELECT 
-    *
-FROM
-    PERSON;
-SELECT 
-    *
-FROM
-    COMMENT;
-SELECT 
-    *
-FROM
-    IPADDRESS;
+#SELECT 
+#    *
+#FROM
+#    INCIDENT;
+#SELECT 
+#    *
+#FROM
+#    PERSON;
+#SELECT 
+#    *
+#FROM
+#    COMMENT;
+#SELECT 
+#    *
+#FROM
+#    IPADDRESS;
