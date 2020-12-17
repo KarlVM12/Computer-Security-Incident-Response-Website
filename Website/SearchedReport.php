@@ -13,7 +13,7 @@
             $username = "root"; // Mysql username
             $password = "1234";	// Mysql Password
 
-            $dbname = "csirts";	// database name
+            $dbname = "csirt";	// database name
             
             // Create connection
             // MySQLi is Object-Oriented method

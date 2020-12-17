@@ -8,14 +8,14 @@
         <hr>
         <h3>Modify an Incident Report - Add IP Addresses</h3>
 
-        <p> Adding IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["IncidentID"]; ?>
+        <p> Adding IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["incidentID"]; ?>
 
         <?php 
             $servername = "localhost";
             $username = "root"; // Mysql username
             $password = "1234";	// Mysql Password
 
-            $dbname = "csirts";	// database name
+            $dbname = "csirt";	// database name
             
             // Create connection
             // MySQLi is Object-Oriented method
@@ -26,7 +26,7 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql = "INSERT INTO ipaddress VALUES (".$_POST["associationID"].",".$_POST["incidentID"].",'".$_POST["IPAddress"]."')";
+            $sql = "INSERT INTO ipaddress VALUES (".$_POST["associationID"].",'".$_POST["IPAddress"]."',".$_POST["incidentID"].")";
 
             $result = $conn->query($sql);
             

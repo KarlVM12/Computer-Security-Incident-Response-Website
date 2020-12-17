@@ -15,7 +15,7 @@
             $username = "root"; // Mysql username
             $password = "1234";	// Mysql Password
 
-            $dbname = "csirts";	// database name
+            $dbname = "csirt";	// database name
             
             // Create connection
             // MySQLi is Object-Oriented method
@@ -26,8 +26,7 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql = "DELETE FROM ipaddress WHERE ipaddress = '".$_POST["IPAddress"]."', incidentID = ".$_POST["incidentID"].", associationID = ".$_POST["associationID"]."";
-
+            $sql = "DELETE FROM ipaddress WHERE associationID = ".$_POST["associationID"]." and ipaddress = '".$_POST["IPAddress"]."' and incidentID = ".$_POST["incidentID"];
             $result = $conn->query($sql);
             
             $conn->close();
