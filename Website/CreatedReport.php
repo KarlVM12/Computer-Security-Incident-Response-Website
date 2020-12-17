@@ -35,12 +35,15 @@
             $sql4 = "INSERT INTO IPADDRESS VALUES (".$_POST["associationID"].",'".$_POST["IPAddress"]."',".$_POST["incidentID"].")";
 
             $sql5 = "INSERT INTO HANDLER VALUES ('".$_POST["handlerName"]."')";
+        
+            $sql6 = "INSERT INTO INVOVLEDPERSON ((".$_POST["incidentID"].",".$_POST["associationID"].")";
 
             $result = $conn->query($sql1);   
             $result = $conn->query($sql2);
             $result = $conn->query($sql3);
             $result = $conn->query($sql4);
             $result = $conn->query($sql5);
+            $result = $conn->query($sql6);
 
             $conn->close();
         ?>
