@@ -8,11 +8,27 @@
         <hr>
         <h3>Modify an Incident Report - Add/Remove People</h3>
 
-        <form method ="POST" action="SearchedReport.php">
-            <label for ="incidentID"> Incident ID Number</label> <br>
-            <input type ="text" name="incidentID" required><br><br>
+        <form method ="POST">
+            <label for ="incidentID">Incident ID</label> <br>
+            <input type ="text" name="incidentID" required><br>
 
-            <input type="submit" value="Request Report"><br>
+            <label for ="associationID">Association ID</label> <br>
+            <input type ="text" name="associationID" required><br>
+
+            <label for ="firstName">First Name</label> <br>
+            <input type ="text" name="firstName" required><br><br>
+
+            <label for ="lastName">Last Name</label> <br>
+            <input type ="text" name="lastName" required><br><br>
+
+            <label for ="jobTitle">Job Title</label> <br>
+            <input type ="text" name="jobTitle" required><br><br>
+
+            <label for ="emailAddress">Email Address</label> <br>
+            <input type ="text" name="emailAddress" required><br><br>
+
+            <input type="submit" value="Add Person" formaction="AddPeople.php">
+            <input type="submit" value="Remove Person" formaction="RemovePeople.php"><br>
         </form>
 
     </body>
