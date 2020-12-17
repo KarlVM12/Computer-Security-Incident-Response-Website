@@ -1,6 +1,9 @@
 CREATE DATABASE csirt;
 USE csirt;
 
+CREATE DATABASE csirt;
+USE csirt;
+
 CREATE TABLE HANDLER (
 	handlerName VARCHAR(50) NOT NULL,
     CONSTRAINT Handler_PK PRIMARY KEY (handlerName)
@@ -31,11 +34,11 @@ CREATE TABLE PERSON (
 CREATE TABLE INVOLVEDPERSON (
     associationID INTEGER NOT NULL,
     incidentID INTEGER NOT NULL,
-    CONSTRAINT InvolvedPerson_PK PRIMARY KEY (associationID),
+    CONSTRAINT InvolvedPerson_PK PRIMARY KEY (associationID, incidentID),
     CONSTRAINT InvolvedPerson_FK1 FOREIGN KEY (associationID)
 	REFERENCES PERSON (associationID)
 	ON UPDATE CASCADE,
-    CONSTRAINT InvolvedPerson_FK2 FOREIGN KEY (incidentID),
+    CONSTRAINT InvolvedPerson_FK2 FOREIGN KEY (incidentID)
 	REFERENCES INCIDENT (incidentID)
 	ON UPDATE CASCADE
 );
@@ -59,7 +62,7 @@ CREATE TABLE IPADDRESS (
     associationID INTEGER NOT NULL,
     IPAddress VARCHAR(32),
     incidentID INTEGER NOT NULL,
-    CONSTRAINT IPAddress_PK PRIMARY KEY (associationID),
+    CONSTRAINT IPAddress_PK PRIMARY KEY (associationID, incidentID),
     CONSTRAINT IPAddress_FK1 FOREIGN KEY (associationID)
         REFERENCES PERSON (associationID),
     CONSTRAINT IPAddress_FK2 FOREIGN KEY (incidentID)
@@ -103,7 +106,7 @@ INSERT INTO INCIDENT VALUES (
 INSERT INTO INCIDENT VALUES (
     564789, 'Malware', '2020-03-02', 'closed', 'Tim infected his laptop with malware', 'Bill Murray');
 INSERT INTO INCIDENT VALUES (
-    009231, 'Software Update', '2020-12-20','open', 'Need to update Kurt\'s software', 'Tim Apple');
+    109231, 'Software Update', '2020-12-20','open', 'Need to update Kurt\'s software', 'Tim Apple');
 INSERT INTO INCIDENT VALUES (
 	972132, 'Theft of Property', '2019-11-20', 'closed', 'Needs to return borrowed iPad', 'John Madoff');
     
@@ -135,7 +138,7 @@ WHERE associationID = 8901;
 INSERT INTO INVOLVEDPERSON VALUES (
     	7654, 222398);
 INSERT INTO INVOLVEDPERSON VALUES (
-    	3456, 54367);
+    	3456, 564789);
 INSERT INTO INVOLVEDPERSON VALUES (
     	6789, 726818);
 INSERT INTO INVOLVEDPERSON VALUES (
@@ -143,9 +146,11 @@ INSERT INTO INVOLVEDPERSON VALUES (
 INSERT INTO INVOLVEDPERSON VALUES (
     	7654, 564789);
 INSERT INTO INVOLVEDPERSON VALUES (
-    	9987, 009231);
+    	9987, 109231);
 INSERT INTO INVOLVEDPERSON VALUES (
     	8901, 972132);
+INSERT INTO INVOLVEDPERSON VALUES (
+		9987, 972132);
 	
     
 INSERT INTO COMMENT VALUES (
