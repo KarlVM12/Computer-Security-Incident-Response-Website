@@ -13,7 +13,6 @@ CREATE TABLE INCIDENT (
     incidentState VARCHAR(30),
     incidentName VARCHAR(40),
     handlerName VARCHAR(50) NOT NULL,
-    associationID INTEGER,
     CONSTRAINT Incident_PK PRIMARY KEY (incidentID),
     CONSTRAINT Incident_FK1 FOREIGN KEY (handlerName)
 		REFERENCES HANDLER (handlerName)
@@ -27,6 +26,18 @@ CREATE TABLE PERSON (
     jobTitle VARCHAR(50),
     emailAddress VARCHAR(100),
     CONSTRAINT Person_PK PRIMARY KEY (associationID)
+);
+
+CREATE TABLE INVOLVEDPERSON (
+    associationID INTEGER NOT NULL,
+    incidentID INTEGER NOT NULL,
+    CONSTRAINT InvolvedPerson_PK PRIMARY KEY (associationID),
+    CONSTRINT InvolvedPerson_FK1 FOREIGN KEY (associationID)
+	REFERENCES PERSON (associationID)
+	ON UPDATE CASCADE,
+    CONSTRAINT InvolvedPerson_FK2 FOREIGN KEY (incidentID),
+	REFERENCES INCIDENT (incidentID)
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE COMMENT (
@@ -56,10 +67,6 @@ CREATE TABLE IPADDRESS (
         ON UPDATE CASCADE
 );
 
-ALTER TABLE INCIDENT
-ADD CONSTRAINT Incident_FK2 FOREIGN KEY (associationID) 
-	REFERENCES PERSON (associationID);
-
 /****** INSERT STATEMENTS ******/
 INSERT INTO HANDLER VALUES (
 	'Steve Woz');
@@ -84,21 +91,21 @@ INSERT INTO PERSON VALUES (
     8901, NULL, NULL, NULL, NULL);
 
 INSERT INTO INCIDENT VALUES (
-	222903, 'Malware', '2020-09-18', 'open', 'Computer Lab 12 Infected', 'Steve Woz', null);
+	222903, 'Malware', '2020-09-18', 'open', 'Computer Lab 12 Infected', 'Steve Woz');
 INSERT INTO INCIDENT VALUES (
-	222398, 'Corruption', '2019-10-31', 'stalled', 'Tim Laptop\'s Hard Drive', 'John Madoff', 7654); 
+	222398, 'Corruption', '2019-10-31', 'stalled', 'Tim Laptop\'s Hard Drive', 'John Madoff'); 
 INSERT INTO INCIDENT VALUES (
-	543267, 'Hardware Malfunction', '2018-11-20', 'closed', 'Angie\'s Dropped Laptop', 'Tim Apple', 3456);
+	543267, 'Hardware Malfunction', '2018-11-20', 'closed', 'Angie\'s Dropped Laptop', 'Tim Apple');
 INSERT INTO INCIDENT VALUES (
-	726818, 'Theft of Property', '2020-12-20', 'closed', 'Frank\'s Laptop Not Returned in Time', 'John Madoff', 6789); 
+	726818, 'Theft of Property', '2020-12-20', 'closed', 'Frank\'s Laptop Not Returned in Time', 'John Madoff'); 
 INSERT INTO INCIDENT VALUES (
-    894933, 'Damaged Laptop', '2020-12-06', 'closed', 'Rosa\'s Laptop screen broken', 'Bill Murray', 9001);
+    894933, 'Damaged Laptop', '2020-12-06', 'closed', 'Rosa\'s Laptop screen broken', 'Bill Murray');
 INSERT INTO INCIDENT VALUES (
-    564789, 'Malware', '2020-03-02', 'closed', 'Tim infected his laptop with malware', 'Bill Murray', 7654);
+    564789, 'Malware', '2020-03-02', 'closed', 'Tim infected his laptop with malware', 'Bill Murray');
 INSERT INTO INCIDENT VALUES (
-    009231, 'Software Update', '2020-12-20','open', 'Need to update Kurt\'s software', 'Tim Apple', 9987);
+    009231, 'Software Update', '2020-12-20','open', 'Need to update Kurt\'s software', 'Tim Apple');
 INSERT INTO INCIDENT VALUES (
-	972132, 'Theft of Property', '2019-11-20', 'closed', 'Needs to return borrowed iPad', 'John Madoff', 8901);
+	972132, 'Theft of Property', '2019-11-20', 'closed', 'Needs to return borrowed iPad', 'John Madoff');
     
 
 UPDATE PERSON
@@ -124,6 +131,22 @@ WHERE associationID = 9987;
 UPDATE PERSON
 SET lastName = 'Bob', firstName = 'Jim', jobTitle = 'Dingus', emailAddress = 'jimbob67@gmail.com'
 WHERE associationID = 8901;
+
+INSERT INTO INVOLVEDPERSON (
+    	7654, 222398);
+INSERT INTO INVOLVEDPERSON (
+    	3456, 54367);
+INSERT INTO INVOLVEDPERSON (
+    	6789, 726818);
+INSERT INTO INVOLVEDPERSON (
+    	9001, 894933);
+INSERT INTO INVOLVEDPERSON (
+    	7654, 564789);
+INSERT INTO INVOLVEDPERSON (
+    	9987, 009231);
+INSERT INTO INVOLVEDPERSON (
+    	8901, 972132);
+	
     
 INSERT INTO COMMENT VALUES (
 	null, 222903, 'The entire lab was infected with malware that encrypted the hard drives of each computer', '2020-09-20', 'Steve Woz');
