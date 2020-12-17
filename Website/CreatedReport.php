@@ -45,6 +45,9 @@
             $conn->close();
         ?>
         <p>Added!</p>
-
+        
+        <form action="IncidentReports.html"> 
+            <input type="submit" value="Go Back to Main Page"><br>
+        </form>
     </body>
 </html>
