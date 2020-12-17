@@ -24,12 +24,52 @@
 .title {
   color: whitesmoke;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 30px;
   font-family: "arial";
   font-size: 30px;
 }
 
 .content {
-  text-align: left;
-  margin-right: 30px;
+  position: relative;
+  padding-left: 50px;
+}
+
+.content-title {
+  color: whitesmoke;
+  font-family: "open sans";
+  padding-top: 30px;
+}
+
+.form {
+  position: relative;
+  color: #61a6ff;
+  font-family: "open sans";
+  padding-top: 10px;
+  text-decoration: underline;
+}
+
+.user-input {
+  position: relative;
+  padding-top: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.label {
+  position: absolute;
+  margin-top: 25px;
+}
+
+.user-submit {
+  position: relative;
+  margin-top: 0px;
+  width: 200px;
+  height: 70px;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: #0365e6;
+  background: none;
+  color: #0365e6;
+  font-size: 16px;
+  font-family: "Lucida sans";
 }
