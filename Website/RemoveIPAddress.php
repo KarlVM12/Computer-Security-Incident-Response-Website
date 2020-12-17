@@ -8,7 +8,7 @@
         <hr>
         <h3>Modify an Incident Report - Remove IP Addresses</h3>
 
-        <p> Removing IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["IncidentID"]; ?>
+        <p> Removing IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["IncidentID"]; ?></p>
 
         <?php 
             $servername = "localhost";
