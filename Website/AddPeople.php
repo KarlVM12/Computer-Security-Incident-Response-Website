@@ -26,8 +26,9 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql1 = "INSERT INTO INVOLVEDPERSON VALUES (".$_POST["associationID"].",".$_POST["incidentID"].")";
-            $sql2 = "INSERT INTO person VALUES (".$_POST["associationID"].",'".$_POST["lastName"]."','".$_POST["firstName"]."','".$_POST["jobTitle"]."','".$_POST["emailAddress"]."')";
+            
+            $sql1 = "INSERT INTO person VALUES (".$_POST["associationID"].",'".$_POST["lastName"]."','".$_POST["firstName"]."','".$_POST["jobTitle"]."','".$_POST["emailAddress"]."')";
+            $sql2 = "INSERT INTO INVOLVEDPERSON VALUES (".$_POST["associationID"].",".$_POST["incidentID"].")";
 
             $result = $conn->query($sql1);
             $result = $conn->query($sql2);
