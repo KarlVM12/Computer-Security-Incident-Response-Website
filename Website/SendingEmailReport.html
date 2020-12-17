@@ -7,30 +7,19 @@
         <h1>Email</h1>
         <hr>
         <h4>What do you want to do?</h4>
-
-        <form method="POST" action="SendEmail.php">
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
-            
-            <input type="submit" value="Send an Email"><br>
-        </form>
         
         <form method="post" name="myemailform" action="SendEmail.php">
             
             <label for ="incidentID">Incident ID</label> <br>
             <input type ="text" name="incidentID" required><br>
 
-            Enter Name:	<input type="text" name="name">
+            Enter Name:	<input type="text" name="name"><br>
 
-            Enter Email Address:	<input type="text" name="email">
+            Enter Email Address:	<input type="text" name="email"><br>
 
-            Enter Message:	<textarea name="message"></textarea>
+            Enter Message:	<textarea name="message"></textarea><br>
 
         <input type="submit" value="Send Email">
-        </form>
-
-        <form action="ReceiveEmail.php">
-            <input type="submit" value="Record New Incident Report"><br>
         </form>
         <hr>
         <form action="IncidentReports.html">
