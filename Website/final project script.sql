@@ -22,7 +22,7 @@ CREATE TABLE INCIDENT (
 );
 
 CREATE TABLE PERSON (
-    associationID INTEGER AUTO_INCREMENT NOT NULL,
+    associationID INTEGER NOT NULL,
     lastName VARCHAR(25),
     firstName VARCHAR(25),
     jobTitle VARCHAR(50),
