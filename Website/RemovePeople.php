@@ -26,7 +26,7 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql = "DELETE FROM person WHERE associationID = ".$_POST["associationID"];
+            $sql = "DELETE FROM INVOLVEDPERSON WHERE associationID = ".$_POST["associationID"] AND incidentID = ".$POST["incidentID"]";
            
             $result = $conn->query($sql);
             
