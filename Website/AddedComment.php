@@ -50,10 +50,10 @@
             $conn->close();
         ?>
 
-        <p>Added!</p>
+        <p class="paragraph">Added!</p>
         <br><hr>  
-        <form action="IncidentReports.html"> 
-            <input type="submit" value="Go Back to Main Page"><br>
+        <form class="form" action="IncidentReports.html"> 
+            <input class="user-submit" type="submit" value="Go Back to Main Page"><br>
         </form>
     </div>
     </body>
