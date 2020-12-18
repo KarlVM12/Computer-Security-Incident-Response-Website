@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Emailing Reports</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Email</h1>
-        <hr>
-        <h4>What do you want to do?</h4>
+    <body class="body">
+        <h1 class="title">Email</h1>
         
-        <form method="post" name="myemailform" action="SendingEmail.php">
+        <div class="content">
+        <h4 class="content-title">What do you want to do?</h4>
+        
+        <form class="form" method="post" name="myemailform" action="SendingEmail.php">
             
-            <label for="incidentID">Incident ID</label><br>
-            <input type="text" name="incidentID" required><br>
+            <label class="label" for="incidentID">Incident ID</label><br>
+            <input class="user-input" type="text" name="incidentID" required><br>
             
-            <label for="name">Enter Name</label><br>
-            <input type="text" name="name" required><br>
+            <label class="label" for="name">Enter Name</label><br>
+            <input class="user-input" type="text" name="name" required><br>
             
-            <label for="sendingemail">Your Email:</label><br>
-            <input type="text" name="sendingemail" required><br>
+            <label class="label" for="sendingemail">Your Email:</label><br>
+            <input class="user-input" type="text" name="sendingemail" required><br>
 
-            <label for="receivingemail">Send To:</label><br>
-            <input type="text" name="receivingemail" required><br>  
+            <label class="label" for="receivingemail">Send To:</label><br>
+            <input class="user-input" type="text" name="receivingemail" required><br>  
 
-            <label for="message">Enter Message:</label><br>
-            <input type="text" name="message" required><br>
+            <label class="label" for="message">Enter Message:</label><br>
+            <input class="user-input" type="text" name="message" required><br>
 
-            <input type="submit" value="Send Email">
+            <input class="user-submit" type="submit" value="Send Email">
         </form>
         <hr>
-        <form action="IncidentReports.html">
-            <input type="submit" value="Go Back to Main Page"><br>
+        <form class="form" action="IncidentReports.html">
+            <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
-        
+        </div>
     </body>
 </html>
