@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
         <title>Email</title>
     </head>
-        <body>
-            <h1>Computer Security Incident Response Team Reports</h1>
-            <hr>
-            <h3>What Email Option?</h3>
+        <body class="body">
+            <h1 class="title">Computer Security Incident Response Team Reports</h1>
+            <div class="content">
+                <h3 class="content-title">What Email Option?</h3>
 
-            <form action="SendingEmailReport.html">
-                <input type ="submit" value="Send an Email"><br>
-            </form>
-            <form action="ReceiveEmail.html">
-                <input type="submit" value="Receive an Email into System"><br>
-            </form>
-    
+                <form class="form" action="SendingEmailReport.html">
+                    <input class="user-submit" type ="submit" value="Send an Email"><br>
+                </form>
+                <form class="form" action="ReceiveEmail.html">
+                    <input class="user-submit" type="submit" value="Receive an Email into System"><br>
+                </form>
+            </div>
         </body>
 </html>
