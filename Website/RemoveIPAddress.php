@@ -8,7 +8,7 @@
         <hr>
         <h3>Modify an Incident Report - Remove IP Addresses</h3>
 
-        <p> Removing IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["IncidentID"]; ?></p>
+        <p> Removing IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["incidentID"]; ?></p>
 
         <?php 
             $servername = "localhost";
@@ -30,10 +30,13 @@
             $result = $conn->query($sql);
 
             //update comment to incindent
-            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
-            $handlerName = $conn->query($sqlhandler);
+             $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerNameResult = $conn->query($sqlhandler);
+            $handlerName = $handlerNameResult->fetch_assoc();
 
-            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Removed', '".date("Y/m/d")."','".$handlerName."')";
+            $date = date("Y-m-d");
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Removed', '".$date."','".$handlerName["handlerName"]."')";
             $conn->query($sqlcomment);
             
             $conn->close();

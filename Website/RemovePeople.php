@@ -32,12 +32,15 @@
 
             //update comment to incindent
             $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
-            $handlerName = $conn->query($sqlhandler);
+            $handlerNameResult = $conn->query($sqlhandler);
+                $handlerName = $handlerNameResult->fetch_assoc();
 
-            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Person Removed', '".date("Y/m/d")."','".$handlerName."')";
-            $conn->query($sqlcomment);
-            
-            $conn->close();
+                $date = date("Y-m-d");
+
+                $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Person Removed', '".$date."','".$handlerName["handlerName"]."')";
+                $conn->query($sqlcomment);
+                
+                $conn->close();
         ?>
         <p>Removed!</p>
         

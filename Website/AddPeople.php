@@ -18,7 +18,7 @@
             <?php 
                 $servername = "localhost";
                 $username = "root"; // Mysql username
-                $password = "";	// Mysql Password
+                $password = "1234";	// Mysql Password
 
                 $dbname = "csirt";	// database name
                 
@@ -42,8 +42,6 @@
                 $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
                 $handlerNameResult = $conn->query($sqlhandler);
                 $handlerName = $handlerNameResult->fetch_assoc();
-
-                echo "Today is ".date("Y-m-d").". HI!";
 
                 $date = date("Y-m-d");
 

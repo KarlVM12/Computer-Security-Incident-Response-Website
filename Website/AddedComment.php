@@ -32,16 +32,19 @@
             if ($conn->connect_error) {
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
+
+            $date = date("Y-m-d");
             
-            $sql = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'".$_POST["commentDescription"]."','".$_POST["commentDate"]."','".$_POST["handlerName"].")";
+            $sql = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'".$_POST["commentDescription"]."','".$date."','".$_POST["handlerName"]."')";
 
             $result = $conn->query($sql);
             
             //update comment to incindent
             $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
-            $handlerName = $conn->query($sqlhandler);
+            $handlerNameResult = $conn->query($sqlhandler);
+            $handlerName = $handlerNameResult->fetch_assoc();
 
-            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Comment Added', '".date("Y/m/d")."','".$handlerName."')";
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Comment Added', '".$date."','".$_POST["handlerName"]."')";
             $conn->query($sqlcomment);
             
             $conn->close();

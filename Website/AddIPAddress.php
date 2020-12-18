@@ -37,10 +37,13 @@
             $result = $conn->query($sql);
 
             //update comment to incindent
-            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
-            $handlerName = $conn->query($sqlhandler);
+             $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerNameResult = $conn->query($sqlhandler);
+            $handlerName = $handlerNameResult->fetch_assoc();
 
-            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".date("Y/m/d")."','".$handlerName."')";
+            $date = date("Y-m-d");
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".$date."','".$handlerName["handlerName"]."')";
             $conn->query($sqlcomment);
             
             $conn->close();
@@ -54,17 +57,3 @@
     </body>
 </html>
 
-
-            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".date("Y/m/d")."','".$handlerName."')";
-            $conn->query($sqlcomment);
-            
-            $conn->close();
-        ?>
-        <p>Added!</p>
-        
-        <form action="IncidentReports.html"> 
-            <input type="submit" value="Go Back to Main Page"><br>
-        </form>
-
-    </body>
-</html>
