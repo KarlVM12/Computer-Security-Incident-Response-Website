@@ -52,7 +52,7 @@
             ?>
             <p class="paragraph">Added!</p>
             
-            <hr>
+            <br><hr>
         <form class="form" action="IncidentReports.html">
             <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
