@@ -44,7 +44,10 @@
             }
 
             // People Involved // ---------------------------------------------------------------
-                // output data of each row
+            $sqlpeople = "select * from incident join involvedperson on incident.incidentID=involvedperson.incidentid join person on person.associationID = involvedperson.associationID where incident.incidentid =".$_POST["incidentID"];
+            $resultspeople = $conn->query($sqlpeople);
+            
+            if ($resultspeople->num_rows >  0) {
                 echo "<h3>People Involved</h3>";
                 while($row = $resultspeople->fetch_assoc()) {
                     echo "ID #: ".$row["associationID"]."<br>Name: ".$row["lastName"].", ".$row["firstName"]." Job:".$row["jobTitle"]." ".$row["emailAddress"];
