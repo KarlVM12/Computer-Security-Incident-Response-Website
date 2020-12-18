@@ -29,36 +29,24 @@
             $date = date("Y-m-d");
             
             $sql1 = "INSERT INTO INCIDENT VALUES (".$_POST["incidentID"].",'".$_POST["incidentType"]."','".$_POST["creationDate"]."','".$_POST["incidentState"]."','".$_POST["incidentName"]."','".$_POST["handlerName"]."')";
-            echo $sql1."<br><br>";
-            
+
             $sql2 = "INSERT INTO COMMENT VALUES (null,".$_POST["incidentID"].",'".$_POST["commentDescription"]."','".$date."','".$_POST["handlerName"]."')";
-            echo $sql2."<br><br>";
 
             $sql3 = "INSERT INTO PERSON VALUES (".$_POST["associationID"].",'".$_POST["lastName"]."','".$_POST["firstName"]."','".$_POST["jobTitle"]."','".$_POST["emailAddress"]."')";
 
-            echo $sql3."<br><br>";
-
             $sql4 = "INSERT INTO IPADDRESS VALUES (".$_POST["associationID"].",'".$_POST["IPAddress"]."',".$_POST["incidentID"].")";
-            
-            echo $sql4."<br><br>";
 
             $sql5 = "INSERT INTO HANDLER VALUES ('".$_POST["handlerName"]."')";
-        
-            echo $sql5."<br><br>";
 
             $sql6 = "INSERT INTO INVOLVEDPERSON VALUES (".$_POST["associationID"].",".$_POST["incidentID"].")";
 
-            echo $sql6."<br><br>";
-
             $result = $conn->query($sql5);
             $result = $conn->query($sql3);
-
             $result = $conn->query($sql1);   
             $result = $conn->query($sql2);
             $result = $conn->query($sql6);
             $result = $conn->query($sql4);
             
-
             $conn->close();
         ?>
         <p>Added!</p>
