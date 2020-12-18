@@ -1,26 +1,31 @@
 <!DOCTYPE html>
+<div class="header">
+    <h1 class="logo">CSIRT</h1>
+</div>
 <html>
     <head>
         <title>Modify Report - IP Addresses</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
+
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Modify an Incident Report - Add/Remove IP Addresses</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h3 class="content-title">Modify an Incident Report - Add/Remove IP Addresses</h3>
 
-        <form method ="POST">
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
+            <form class="form" method ="POST">
+                <label class="label" for ="incidentID">Incident ID</label> <br>
+                <input class="user-input" type ="text" name="incidentID" required><br>
 
-            <label for ="associationID">Association ID</label> <br>
-            <input type ="text" name="associationID" required><br>
+                <label class="label" for ="associationID">Association ID</label> <br>
+                <input class="user-input" type ="text" name="associationID" required><br>
 
-            <label for ="IPAddress">IP Address</label> <br>
-            <input type ="text" name="IPAddress" required><br><br>
+                <label class="label" for ="IPAddress">IP Address</label> <br>
+                <input class="user-input" type ="text" name="IPAddress" required><br><br>
 
-            <input type="submit" value="Add IP Address" formaction="AddIPAddress.php">
-            <input type="submit" value="Remove IP Address" formaction="RemoveIPAddress.php"><br>
-        </form>
-
+                <input class="user-submit" type="submit" value="Add IP" formaction="AddIPAddress.php">
+                <input class="user-submit" type="submit" value="Remove IP" formaction="RemoveIPAddress.php"><br>
+            </form>
+        </div>
     </body>
 </html>
