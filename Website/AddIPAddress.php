@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Modify Report - IP Addresses</title>
-    </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Modify an Incident Report - Add IP Addresses</h3>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
 
-        <p> Adding IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["incidentID"]; ?>
+    </head>
+    <body class="body">
+        
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+        <h3 class="content-title">Modify an Incident Report - Add IP Addresses</h3>
+
+        <p class="paragraph"> Adding IP Address <?php echo $_POST["IPAddress"]; ?> to Incident # <?php echo $_POST["incidentID"]; ?>
 
         <?php 
             $servername = "localhost";
@@ -33,6 +39,21 @@
             //update comment to incindent
             $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
             $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
+            
+            $conn->close();
+        ?>
+        <p class="paragraph">Added!</p>
+        
+        <form class="form" action="IncidentReports.html"> 
+            <input class="user-submit" type="submit" value="Main Page"><br>
+        </form>
+        </div>
+    </body>
+</html>
+
 
             $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".date("Y/m/d")."','".$handlerName."')";
             $conn->query($sqlcomment);
