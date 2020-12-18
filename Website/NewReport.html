@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
         <title>New Report</title>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Record New Incident Report</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h3 class="content-title">Record New Incident Report</h3>
 
-        <form method ="POST" action="CreatedReport.php">
+            <form class="form" method ="POST" action="CreatedReport.php">
 
-            <h4> Incident </h4>
+                <h4 style="color: whitesmoke;"> Incident </h4>
 
-            <label for ="incidentID"> Incident ID Number</label> <br>
-            <input type ="text" name="incidentID" required><br>
-            
-            <label for ="incidentType"> Type of Incident</label> <br>
-            <input type ="text" name="incidentType" required><br>
+                <label class="label" for ="incidentID"> Incident ID Number</label> <br>
+                <input class="user-input" type ="text" name="incidentID" required><br>
+                
+                <label class="label" for ="incidentType"> Type of Incident</label> <br>
+                <input  class="user-input" type ="text" name="incidentType" required><br>
 
-            <label for ="creationDate"> Date of Creation</label> <br>
-            <input type ="text" name="creationDate" required><br>
+                <label class="label" for ="creationDate"> Date of Creation</label> <br>
+                <input class="user-input" type ="text" name="creationDate" required><br>
 
-            <label for ="incidentState"> Current State of Incident</label> <br>
-            <input type ="text" name="incidentState" required><br>
+                <label class="label" for ="incidentState"> Current State of Incident</label> <br>
+                <input class="user-input" type ="text" name="incidentState" required><br>
 
-            <label for ="handlerName"> Name of Handler</label> <br>
-            <input type ="text" name="handlerName" required><br>
+                <label class="label" for ="handlerName"> Name of Handler</label> <br>
+                <input class="user-input" type ="text" name="handlerName" required><br>
 
-            <label for ="associationID"> ID of Person Associated</label> <br>
-            <input type ="text" name="associationID" required><br>
+                <label class="label" for ="associationID"> ID of Person Associated</label> <br>
+                <input class="user-input" type ="text" name="associationID" required><br>
 
-            <h4> Comment</h4>
+                <h4 style="color: whitesmoke;"> Comment</h4>
 
-            <label for ="commentDescription">Description of Incident</label> <br>
-            <input type ="text" name="lastName" required><br>
+                <label class="label" for ="commentDescription">Description of Incident</label> <br>
+                <input class="user-input" type ="text" name="lastName" required><br>
 
-            <label for ="commentDate">Date of Comment</label> <br>
-            <input type ="text" name="firstName" required><br>
+                <label class="label" for ="commentDate">Date of Comment</label> <br>
+                <input class="user-input" type ="text" name="firstName" required><br>
 
-            <h4> Person</h4>
+                <h4 style="color: whitesmoke;"> Person</h4>
 
-            <label for ="associationID">ID of Associated Person</label> <br>
-            <input type ="text" name="associationID" required><br>
+                <label class="label" for ="associationID">ID of Associated Person</label> <br>
+                <input class="user-input" type ="text" name="associationID" required><br>
 
-            <label for ="lastName">Last Name of Person</label> <br>
-            <input type ="text" name="lastName"><br>
+                <label class="label" for ="lastName">Last Name of Person</label> <br>
+                <input class="user-input" type ="text" name="lastName"><br>
 
-            <label for ="firstName">First Name of Person</label> <br>
-            <input type ="text" name="firstName"><br>
+                <label class="label" for ="firstName">First Name of Person</label> <br>
+                <input class="user-input" type ="text" name="firstName"><br>
 
-            <label for ="jobTitle">Person's Job Title</label> <br>
-            <input type ="text" name="jobTitle"><br>
+                <label class="label" for ="jobTitle">Person's Job Title</label> <br>
+                <input class="user-input" type ="text" name="jobTitle"><br>
 
-            <label for ="emailAddress">Person's Email</label> <br>
-            <input type ="text" name="emailAddress"><br>
+                <label class="label" for ="emailAddress">Person's Email</label> <br>
+                <input class="user-input" type ="text" name="emailAddress"><br>
 
-            <h4> IP Address </h4>
+                <h4 style="color: whitesmoke;"> IP Address </h4>
 
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
+                <label class="label" for ="incidentID">Incident ID</label> <br>
+                <input class="user-input" type ="text" name="incidentID" required><br>
 
-            <label for ="associationID">Association ID</label> <br>
-            <input type ="text" name="associationID" required><br>
+                <label class="label" for ="associationID">Association ID</label> <br>
+                <input class="user-input" type ="text" name="associationID" required><br>
 
-            <label for ="IPAddress">IP Address</label> <br>
-            <input type ="text" name="IPAddress" required><br><br>
+                <label class="label" for ="IPAddress">IP Address</label> <br>
+                <input class="user-input" type ="text" name="IPAddress" required><br><br>
 
-            <input type="submit" value="Submit New Report"><br>
+                <input class="user-submit" type="submit" value="Submit New Report"><br>
 
-        </form>
-        
+            </form>
+        </div>
 
     </body>
 </html>
+
