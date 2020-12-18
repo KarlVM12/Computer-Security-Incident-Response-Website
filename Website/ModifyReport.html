@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
         <title>Modify Report</title>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Modify an Incident Report</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h3 class="content-title">Modify an Incident Report</h3>
 
-        <p>What do you want to modify?</p>
+            <p class="paragraph">What do you want to modify?</p>
 
-        <form action="ChangeIncidentState.html">
-            <input type="submit" value="Change Incident State"><br>
-        </form>
+            <form class="form" action="ChangeIncidentState.html">
+                <input class="user-submit" type="submit" value="Change Incident State"><br>
+            </form>
 
-        <form action="AddComment.html">
-            <input type="submit" value="Add Comment"><br>
-        </form>
+            <form class="form" action="AddComment.html">
+                <input class="user-submit" type="submit" value="Add Comment"><br>
+            </form>
 
-        <form action="AddRemovePeople.html">
-            <input type="submit" value="Add/Remove People from an Incident"><br>
-        </form>
-        
-        <form action="AddRemoveIPAddresses.html">
-            <input type="submit" value="Add/Remove IP Addresses"><br>
-        </form>
-    
+            <form class="form" action="AddRemovePeople.html">
+                <input class="user-submit" type="submit" value="Add/Remove People from an Incident"><br>
+            </form>
+            
+            <form class="form" action="AddRemoveIPAddresses.html">
+                <input class="user-submit" type="submit" value="Add/Remove IP Addresses"><br>
+            </form>
+        </div>
     </body>
 </html>
