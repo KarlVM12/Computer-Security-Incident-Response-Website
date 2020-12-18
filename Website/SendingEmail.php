@@ -32,7 +32,9 @@
          $result = $conn->query($sql3);
          $result = $conn->query($sql4);
 
-	      echo "'".$result."'";
+         echo "<table> <tr> <th>incidentID</th>  <th>incidentType</th> <th>creationDate</th> <th>incidentState</th> <th>incidentName</th> <th>handlerName</th> </tr>".
+               "<tr><td>".$row["incidentID"]."</td>"."<td>".$row["incidentType"]."</td>"."<td>".$row["creationDate"]."</td>"."<td>".$row["incidentState"]."</td>"."<td>".$row["incidentName"]."</td>"."<td>".$row["handlerName"]."</td></tr>"."</table>";
+      
       
          $email_from = "'".$_POST["sendingemail"]."'";
          $email_subject = "CSIRT Report Email";
