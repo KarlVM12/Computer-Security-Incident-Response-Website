@@ -24,7 +24,7 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            // Prints complete Incident
+            // Prints complete Incident // ------------------------------------------------------
             $sql1 = "SELECT * FROM incident WHERE incidentID=" . $_POST["incidentID"] . "";
           
             $result1 = $conn->query($sql1);
@@ -41,7 +41,27 @@
                 echo "0 results";
             }
 
-            // Prints comments from incident
+            // People Involved // ---------------------------------------------------------------
+            $sqlpeople = "select * from incident join involvedperson on incident.incidentID=involvedperson.incidentid join person on person.associationID = involvedperson.associationID where incident.incidentid =".$_POST["incidentID"];
+            $resultspeople = $conn->query($sqlpeople);
+
+
+            if ($resultspeople->num_rows >  0) {
+                // output data of each row
+                echo "<h3>People Involved</h3>";
+                while($row = $resultspeople->fetch_assoc()) {
+                    echo $row["associationID"]."Name: ".$row["lastName"].", ".$row["firstName"]." ".$row["jobTitle"]." ".$row["emailAddress"];
+                    
+                    $sqlpeopleIP = "SELECT IPAddress FROM ipaddress where incidentID =".$_POST["incidentID"]." and associationID = ".$row["associationID"];
+                    $IPresult = $conn->query($sqlpeopleIP);
+                    $IP = $IPresult->fetch_assoc();
+                    echo $row["IPAddress"]."<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+
+            // Prints comments from incident // -------------------------------------------------
             $sql2 = "SELECT * FROM comment WHERE incidentID=" . $_POST["incidentID"] . " ORDER BY commentDate DESC";
           
             $result2 = $conn->query($sql2);
@@ -50,7 +70,7 @@
                 // output data of each row
                 echo "<h3>Comments</h3>";
                 while($row = $result2->fetch_assoc()) {
-                    echo $row["commentDate"]."<br>"."Handled By:".$row["handlerName"]."<br>"
+                    echo $row["commentDate"]."<br>"."Handled By: ".$row["handlerName"]."<br>"
                     .$row["commentDescription"]."<br><br>";
                 }
             } else {
