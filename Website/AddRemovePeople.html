@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
+
+
     <head>
         <title>Modify Report - People</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Modify an Incident Report - Add/Remove People</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h3 class="content-title">Modify an Incident Report - Add/Remove People</h3>
 
-        <form method ="POST">
-            
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
-            
-            <label for ="associationID">Association ID</label> <br>
-            <input type ="text" name="associationID" required><br>
+            <form class="form" method ="POST">
+                
+                <label class="label" for ="incidentID">Incident ID</label> <br>
+                <input class="user-input" type ="text" name="incidentID" required><br>
+                
+                <label class="label" for ="associationID">Association ID</label> <br>
+                <input class="user-input" type ="text" name="associationID" required><br>
 
-            <label for ="firstName">First Name</label> <br>
-            <input type ="text" name="firstName" ><br>
+                <label class="label" for ="firstName">First Name</label> <br>
+                <input class="user-input" type ="text" name="firstName" ><br>
 
-            <label for ="lastName">Last Name</label> <br>
-            <input type ="text" name="lastName" ><br>
+                <label class="label" for ="lastName">Last Name</label> <br>
+                <input class="user-input" type ="text" name="lastName" ><br>
 
-            <label for ="jobTitle">Job Title</label> <br>
-            <input type ="text" name="jobTitle" ><br>
+                <label class="label" for ="jobTitle">Job Title</label> <br>
+                <input class="user-input" type ="text" name="jobTitle" ><br>
 
-            <label for ="emailAddress">Email Address</label> <br>
-            <input type ="text" name="emailAddress" ><br><br>
+                <label class="label" for ="emailAddress">Email Address</label> <br>
+                <input class="user-input" type ="text" name="emailAddress" ><br><br>
 
-            <input type="submit" value="Add Person" formaction="AddPeople.php">
-            <input type="submit" value="Remove Person" formaction="RemovePeople.php"><br>
-        </form>
-
+                <input class="user-submit" type="submit" value="Add Person" formaction="AddPeople.php">
+                <input class="user-submit" type="submit" value="Remove Person" formaction="RemovePeople.php"><br>
+            </form>
+        </div>
     </body>
 </html>
+
