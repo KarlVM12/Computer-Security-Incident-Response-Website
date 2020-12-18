@@ -24,19 +24,20 @@
             $sql = "SELECT * FROM INCIDENT WHERE incidentID = ".$_POST["incidentID"].";";
             $sql .= "SELECT * FROM INVOLVEDPERSON WHERE incidentID = ".$_POST["incidentID"].";";
             $sql .= "SELECT * FROM COMMENT WHERE incidentID = ".$_POST["incidentID"].";";
-            $sql .= "SELECT * FROM IPADDRESS WHERE incidentID = ".$_POST["incidentID"].";";
+            $sql .= "SELECT * FROM IPADDRESS WHERE incidentID = ".$_POST["incidentID"].";
             
             $result = $conn->query($sql);
+	    echo $result;
       
-          	$email_from = "$sendingemail";
-	          $email_subject = "CSIRT Report Email";
-	          $email_body = "You have received a new message from the user $name.\n".
-            $email_body .= "Here is the message:\n $message\n".
+            $email_from = ".$_POST["sendingemail"].";
+	    $email_subject = "CSIRT Report Email";
+	    $email_body = "You have received a new message from the user ".$_POST["name"].".\n".
+            $email_body .= "Here is the message:\n ".$_POST["message"]."\n".
             $email_body .= "$result\n";
           
             $to = "$email_from";
             $headers = "From: $email_from \r\n";
-            $headers .= "Reply-To: $visitor_email \r\n";
+            $headers .= "Reply-To: $email_from \r\n";
             mail($to,$email_subject,$email_body,$headers);
       ?>
       
