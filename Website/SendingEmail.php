@@ -21,46 +21,73 @@
          if ($conn->connect_error) {
                die("connection failed: " . $conn->connect_error ."<br>");
          } 
+
+         $sqlresults = "";
          
-         $sql1 = "SELECT * FROM INCIDENT WHERE incidentID = ".$_POST["incidentID"];
-         $sql2 = "SELECT * FROM INVOLVEDPERSON WHERE incidentID = ".$_POST["incidentID"];
-         $sql3 = "SELECT * FROM COMMENT WHERE incidentID = ".$_POST["incidentID"];
-         $sql4 = "SELECT * FROM IPADDRESS WHERE incidentID = ".$_POST["incidentID"];
-         
+         $sql1 = "SELECT * FROM incident WHERE incidentID=" . $_POST["incidentID"] . "";
+          
          $result1 = $conn->query($sql1);
-         $result2 = $conn->query($sql2);
-         $result3 = $conn->query($sql3);
-         $result4 = $conn->query($sql4);
+           
+         if ($result1->num_rows >  0) {
+             // output data of each row
+             while($row = $result1->fetch_assoc()) {
+                 $sqlresults .= "<h3>Incident ID # ".$_POST["incidentID"]."</h3><br>". 
+                 "Incident Created on: ".$row["creationDate"]."<br>". 
+                 "Reason for Incident: ".$row["incidentType"]."<br>". 
+                 "Incident Description: ".$row["incidentName"]."<br>". 
+                 "State of the Incident: ".$row["incidentState"]."<br>". 
+                 "Currently Being Handled By: ".$row["handlerName"]."<br><br>";
+             }
+         } else {
+            $sqlresults .= "<h3>No Incident With this ID</h3>";
+         }
 
-         $row1 = $result1->fetch_assoc();
-         
-            // output data of each row
-            $row2 = $result2->fetch_all();
-                  
-      
-        
-         $row3 = $result3->fetch_assoc();
-         $row4 = $result4->fetch_assoc();
+            // People Involved // ---------------------------------------------------------------
+         $sqlpeople = "select * from incident join involvedperson on incident.incidentID=involvedperson.incidentid join person on person.associationID = involvedperson.associationID where incident.incidentid =".$_POST["incidentID"];
+         $resultspeople = $conn->query($sqlpeople);
 
-         echo "<h4>Incident</h4><br><table> <tr> <th>incidentID</th>  <th>incidentType</th> <th>creationDate</th> <th>incidentState</th> <th>incidentName</th> <th>handlerName</th> </tr>".
-               "<tr><td>".$row1["incidentID"]."</td>"."<td>".$row1["incidentType"]."</td>"."<td>".$row1["creationDate"]."</td>"."<td>".$row1["incidentState"]."</td>"."<td>".$row1["incidentName"]."</td>"."<td>".$row1["handlerName"]."</td></tr>"."</table>";
+         if ($resultspeople->num_rows >  0) {
+             $sqlresults .= "<h3>People Involved</h3>";
+             while($row = $resultspeople->fetch_assoc()) {
+                 $sqlresults .= "ID #: ".$row["associationID"]."<br>Name: ".$row["lastName"].", ".$row["firstName"]."<br>".
+                 "Job: ".$row["jobTitle"]."<br>Email Address: ".$row["emailAddress"]."<br>";
 
-               echo "\n<h4>Involved People</h4><br><table> <tr> <th>associationID</th> <th>incidentID</th> </tr>".
-               "<tr><td>".$row2["associationID"]."</td>"."<td>".$row2['incidentID']."</td></tr>"."<table>";
-         echo "\n<h4>Comments</h4><br><table> <tr> <th>commentID</th> <th>incidentID</th> <th>commentDescription</th> <th>commentDate</th> <th>handlerName</th> </tr>".
-               "<tr><td>".$row3["commentID"]."</td>"."<td>".$row3['incidentID']."</td>"."<td>".$row3['commentDescription']."</td>"."<td>".$row3['commentDate']."</td>"."<td>".$row3['handlerName']."</td></tr>"."</table>";
-         
-         echo "\n<h4>IP Address</h4><br><table> <tr> <th>associationID</th> <th>IPAddress</th> <th>incidentID</th> </tr>".
-               "<tr><td>".$row4['associationID']."</td>"."<td>".$row4['IPAddress']."</td>"."<td>".$row4['incidentID']."</td></tr>"."</table>";
-      
-      //FORMAT FOR ABOVE
-      "select associationID from incident join involvedperson on incident.incidentID=involvedperson.incidentid where incident.incidentid= 972132;"
-         #echo $sqlresults;
-      
+                 $sqlpeopleIP = "SELECT IPAddress FROM ipaddress where incidentID =".$_POST["incidentID"]." and associationID = ".$row["associationID"];
+                 $IPresult = $conn->query($sqlpeopleIP);
+
+                 if ($IPresult->num_rows >  0) {
+                     $IP = $IPresult->fetch_assoc();
+                     $sqlresults .= "IP Address: ".$IP["IPAddress"];
+                 } else {
+                     $sqlresults .= "No Associated IP Address";
+                 }
+                 
+                 $sqlresults .= "<br><br>";
+            }
+         } else {
+             $sqlresults .= "<h3>No People Involved</h3>";
+         }
+
+         // Prints comments from incident // -------------------------------------------------
+         $sql2 = "SELECT * FROM comment WHERE incidentID=" . $_POST["incidentID"] . " ORDER BY commentDate DESC";
+       
+            $result2 = $conn->query($sql2);
+           
+            if ($result2->num_rows >  0) {
+                // output data of each row
+                $sqlresults .= "<h3>Comments</h3>";
+                while($row = $result2->fetch_assoc()) {
+                    $sqlresults .= $row["commentDate"]."<br>"."Handled By: ".$row["handlerName"]."<br>"
+                    .$row["commentDescription"]."<br><br>";
+                }
+            } else {
+                $sqlresults .= "<h3>No Comments</h3>";
+            }
+
          $email_from = "'".$_POST["sendingemail"]."'";
          $email_subject = "CSIRT Report Email";
-         $email_body = "You have received a new message from the user '".$_POST["name"]."'\n".
-         $email_body .= "Here is the message:\n '".$_POST["message"]."'\n".
+         $email_body = "You have received a new message from the user '".$_POST["name"]."'\n";
+         $email_body .= "Here is the message:\n '".$_POST["message"]."'\n";
          $email_body .= "'".$sqlresults."'\n";
          
          $to = "'".$email_from."'";
