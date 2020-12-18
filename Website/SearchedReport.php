@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Searched Report Request</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <p>Incident Report</p>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+        <p class="paragraph">Incident Report</p>
 
         <?php 
             $servername = "localhost";
@@ -88,9 +92,10 @@
             $conn->close();
         ?>
         
-        <br><hr>
+        <br>
         <form class="form" action="IncidentReports.html">
             <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
+        </div>
     </body>
 </html>
