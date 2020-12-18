@@ -13,18 +13,20 @@
             <h3 class="content-title">Modify an Incident Report - Change Incident State</h3>
             <br>
             <hr>
+
             <form class="form" method ="POST">
                 <label class="label" for ="incidentID">Incident ID</label> <br>
                 <input class="user-input" type ="text" name="incidentID" required><br>
 
                 <label class="label" for ="incidentState">New Incident State</label> <br>
                 <input class="user-input" type ="text" name="incidentState" required><br>
+                
+                <input class="user-submit" type="submit" value="Change State" formaction="ChangedState.php">
             </form>
+
             <br><hr>
             <form class="form" action="IncidentReports.html">
                 <input class="user-submit" type="submit" value="Main Page">
-                <input class="user-submit" type="submit" value="Change State" formaction="ChangedState.php">
-
                 <br>
             </form>
         </div>
