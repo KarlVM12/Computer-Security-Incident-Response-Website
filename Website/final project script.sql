@@ -1,8 +1,7 @@
-CREATE DATABASE csirt;
+drop database csirt;
+create DATABASE csirt;
 USE csirt;
 
-CREATE DATABASE csirt;
-USE csirt;
 
 CREATE TABLE HANDLER (
 	handlerName VARCHAR(50) NOT NULL,
@@ -162,7 +161,7 @@ INSERT INTO COMMENT VALUES (
 INSERT INTO COMMENT VALUES (
 	null, 543267, 'Angie has been given a new laptop. Issue is closed.', '2018-11-27', 'Tim Apple');
 INSERT INTO COMMENT VALUES (
-	null, 009231, 'He needs the latest year updates for Premier Pro', '2020-12-21', 'Tim Apple');
+	null, 109231, 'He needs the latest year updates for Premier Pro', '2020-12-21', 'Tim Apple');
 
 INSERT INTO IPADDRESS VALUES (
 	7654, '145.10.34.3', 222398);

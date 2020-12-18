@@ -32,10 +32,10 @@
             if ($result1->num_rows >  0) {
                 // output data of each row
                 while($row = $result1->fetch_assoc()) {
-                    echo "incidentID: ". $row["incidentID"] . " - incidentType: " . $row["incidentType"] . 
-                    " - creationDate: " . $row["creationDate"] . " - incidentState: " . $row["incidentState"] .
-                    " - incidentName: " . $row["incidentName"] . " - handlerName: " . $row["handlerName"] . 
-                    " - associationID: " . $row["associationID"] . "<br>";
+                    echo "<table> <tr> <th>incidentID</th>  <th>incidentType</th> <th>creationDate</th> <th>incidentState</th> <th>incidentName</th> <th>handlerName</th> </tr>"
+                    ."<tr><td>".$row["incidentID"]."</td>"."<td>".$row["incidentType"]."</td>"."<td>".$row["creationDate"]."</td>"."<td>".$row["incidentState"]."</td>"."<td>"
+                    .$row["incidentName"]."</td>"."<td>".$row["handlerName"]."</td></tr>"."</table>"
+                    . "<br>";
                 }
             } else {
                 echo "0 results";
