@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Modify Report - Incident State</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Modify an Incident Report - Change Incident State</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h3 class="content-title">Modify an Incident Report - Change Incident State</h3>
 
-        <form method ="POST">
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
+            <form class="form" method ="POST">
+                <label class="label" for ="incidentID">Incident ID</label> <br>
+                <input class="input" type ="text" name="incidentID" required><br>
 
-            <label for ="incidentState">New Incident State</label> <br>
-            <input type ="text" name="incidentState" required><br>
+                <label class="label" for ="incidentState">New Incident State</label> <br>
+                <input class="input" type ="text" name="incidentState" required><br>
 
-            <input type="submit" value="Change State" formaction="ChangedState.php">
-        </form>
-
+                <input class="input" type="submit" value="Change State" formaction="ChangedState.php">
+            </form>
+        </div>
     </body>
 </html>
