@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-   
+   <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
    <head>
       <title>Sending Email</title>
+      <link rel="stylesheet" type="text/css" href="styles.css"></link>
+
    </head>
-   <body>
-      <h3>Emaling</h3>
+   <body class="body">
+      <div class="content">
+      <h3 class=>Emaling</h3>
       <?php
          $servername = "localhost";
          $username = "root"; // Mysql username
@@ -97,10 +102,11 @@
 
          $conn->close();
       ?>
-      <p>Emailed!</p>
+      <p class="paragraph">Emailed!</p>
       <br><hr>
         <form class="form" action="IncidentReports.html">
             <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
+      </div>
    </body>
 </html>
