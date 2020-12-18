@@ -10,17 +10,23 @@
         
         <form method="post" name="myemailform" action="SendEmail.php">
             
-            Incident ID: <input type="text" name="incidentID"><br>
-
-            Enter Name:	<input type="text" name="name"><br>
+            <label for="incidentID">Incident ID</label><br>
+            <input type="text" name="incidentID" required><br>
             
-            Your email: <input type-"text" name="sendingemail"><br>
+            <label for"name">Enter Name</label><br>
+            <input type='text" name="name" required><br>
+            
+            <label for"sendingemail">Your Email:</label><br>
+            <input type='text" name="sendingemail" required><br>
+            
 
-            Send to: <input type="text" name="receivingemail"><br>
+            <label for"receivingemail">Send To:</label><br>
+            <input type='text" name="receivingemail" required><br>  
 
-            Enter Message:	<textarea name="message"></textarea><br>
+            <label for"message">Enter Message:</label><br>
+            <input type='text" name="message" required><br>
 
-        <input type="submit" value="Send Email">
+            <input type="submit" value="Send Email">
         </form>
         <hr>
         <form action="IncidentReports.html">
