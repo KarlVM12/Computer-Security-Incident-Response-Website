@@ -13,27 +13,27 @@
         <h1 class="title">Computer Security Incident Response Team Reports</h1>
         
         <div class="content">
-        <h3 class>Modify an Incident Report - Add Comment</h3>
+        <h3 class="content-title">Modify an Incident Report - Add Comment</h3>
 
-        <form method ="POST">
-            <label for ="incidentID">Incident ID</label> <br>
-            <input type ="text" name="incidentID" required><br>
+        <form class="form" method ="POST">
+            <label class="label" for ="incidentID">Incident ID</label> <br>
+            <input class="user-input" type ="text" name="incidentID" required><br>
 
             <!--
             <label for ="commentDescription">Comment Description</label> <br>
             <input type ="text" name="commentDescription" required><br><br>
             -->
 
-            <label for ="commentDescription">Comment Description</label> <br>
-            <textarea rows="5" cols="16" name="commentDescription"></textarea><br>
+            <label class="label" for ="commentDescription">Comment Description</label> <br>
+            <textarea class="user-input" rows="5" cols="16" name="commentDescription"></textarea><br>
             
-            <label for ="commentDate">Comment Date</label> <br>
-            <input type ="text" name="commentDate" required><br>
+            <label class="label" for ="commentDate">Comment Date</label> <br>
+            <input class="user-input" type ="text" name="commentDate" required><br>
 
-            <label for ="handlerName">Handler Name</label> <br>
-            <input type ="text" name="handlerName" required><br><br>
+            <label class="label" for ="handlerName">Handler Name</label> <br>
+            <input class="user-input" type ="text" name="handlerName" required><br><br>
 
-            <input type="submit" value="Add Comment" formaction="AddedComment.php"><br>
+            <input class="user-submit" type="submit" value="Add Comment" formaction="AddedComment.php"><br>
         </form>
     </div>
     </body>
