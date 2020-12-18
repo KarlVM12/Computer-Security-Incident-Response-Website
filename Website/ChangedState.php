@@ -29,6 +29,13 @@
             $sql = "UPDATE incident SET incidentState = '".$_POST["incidentState"]."' WHERE incidentID = ".$_POST["incidentID"];
             
             $result = $conn->query($sql);
+
+            //update comment to incindent
+            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Incident State Changed', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
             
             $conn->close();
         ?>

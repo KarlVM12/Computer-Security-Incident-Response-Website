@@ -26,9 +26,16 @@
                 die("connection failed: " . $conn->connect_error ."<br>");
             } 
             
-            $sql = "DELETE FROM INVOLVEDPERSON WHERE associationID = ".$_POST["associationID"]." AND incidentID = ".$_POST["incidentID"].";
+            $sql = "DELETE FROM INVOLVEDPERSON WHERE associationID = ".$_POST["associationID"]." AND incidentID = ".$_POST["incidentID"];
            
             $result = $conn->query($sql);
+
+            //update comment to incindent
+            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Person Removed', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
             
             $conn->close();
         ?>

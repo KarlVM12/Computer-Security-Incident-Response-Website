@@ -37,6 +37,13 @@
 
             $result = $conn->query($sql);
             
+            //update comment to incindent
+            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'Comment Added', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
+            
             $conn->close();
         ?>
 

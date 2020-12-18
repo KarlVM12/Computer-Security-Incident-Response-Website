@@ -28,6 +28,13 @@
             
             $sql = "DELETE FROM ipaddress WHERE associationID = ".$_POST["associationID"]." and ipaddress = '".$_POST["IPAddress"]."' and incidentID = ".$_POST["incidentID"];
             $result = $conn->query($sql);
+
+            //update comment to incindent
+            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Removed', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
             
             $conn->close();
         ?>

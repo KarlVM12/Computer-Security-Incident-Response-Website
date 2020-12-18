@@ -29,6 +29,13 @@
             $sql = "INSERT INTO ipaddress VALUES (".$_POST["associationID"].",'".$_POST["IPAddress"]."',".$_POST["incidentID"].")";
 
             $result = $conn->query($sql);
+
+            //update comment to incindent
+            $sqlhandler = "SELECT handlerName FROM incident WHERE incidentID = ".$_POST["incidentID"];
+            $handlerName = $conn->query($sqlhandler);
+
+            $sqlcomment = "INSERT INTO comment VALUES (null,".$_POST["incidentID"].",'IP Address Added', '".date("Y/m/d")."','".$handlerName."')";
+            $conn->query($sqlcomment);
             
             $conn->close();
         ?>
