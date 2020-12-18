@@ -6,12 +6,12 @@
     <body>
         <h1>Computer Security Incident Response Team Reports</h1>
         <hr>
-        <p>Incident Report</p>
+        <p>Report #<?php echo $_POST["incidentID"]; ?></p>
 
         <?php 
             $servername = "localhost";
             $username = "root"; // Mysql username
-            $password = "1234";	// Mysql Password
+            $password = "";	// Mysql Password
 
             $dbname = "csirt";	// database name
             
@@ -32,15 +32,13 @@
             if ($result1->num_rows >  0) {
                 // output data of each row
                 while($row = $result1->fetch_assoc()) {
-                    echo "<h3>Incident ID # </h3>".$_POST["incidentID"]."<br>". 
-                    "Incident Created on: ".$row["creationDate"]."<br>". 
-                    "Reason for Incident: ".$row["incidentType"]."<br>". 
-                    "Incident Description: ".$row["incidentName"]."<br>". 
-                    "State of the Incident: ".$row["incidentState"]."<br>". 
-                    "Currently Being Handled By: ".$row["handlerName"]."<br><br>";
+                    echo "<table> <tr> <th>incidentID</th>  <th>incidentType</th> <th>creationDate</th> <th>incidentState</th> <th>incidentName</th> <th>handlerName</th> </tr>"
+                    ."<tr><td>".$row["incidentID"]."</td>"."<td>".$row["incidentType"]."</td>"."<td>".$row["creationDate"]."</td>"."<td>".$row["incidentState"]."</td>"."<td>"
+                    .$row["incidentName"]."</td>"."<td>".$row["handlerName"]."</td></tr>"."</table>"
+                    . "<br>";
                 }
             } else {
-                echo "<h3>No Incident With this ID</h3>";
+                echo "0 results";
             }
 
             // People Involved // ---------------------------------------------------------------
@@ -52,15 +50,15 @@
                 // output data of each row
                 echo "<h3>People Involved</h3>";
                 while($row = $resultspeople->fetch_assoc()) {
-                    echo "ID #: ".$row["associationID"]."<br>Name: ".$row["lastName"].", ".$row["firstName"]." Job:".$row["jobTitle"]." ".$row["emailAddress"];
+                    echo $row["associationID"]."Name: ".$row["lastName"].", ".$row["firstName"]." ".$row["jobTitle"]." ".$row["emailAddress"];
                     
                     $sqlpeopleIP = "SELECT IPAddress FROM ipaddress where incidentID =".$_POST["incidentID"]." and associationID = ".$row["associationID"];
                     $IPresult = $conn->query($sqlpeopleIP);
                     $IP = $IPresult->fetch_assoc();
-                    echo " ".$row["IPAddress"]."<br><br>";
+                    echo $IP["IPAddress"]."<br>";
                 }
             } else {
-                echo "<h3>No People Involved</h3>";
+                echo "0 results";
             }
 
             // Prints comments from incident // -------------------------------------------------
@@ -76,7 +74,7 @@
                     .$row["commentDescription"]."<br><br>";
                 }
             } else {
-                echo "<h3>No Comments</h3>";
+                echo "0 results";
             }
 
             $conn->close();

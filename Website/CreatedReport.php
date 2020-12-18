@@ -13,7 +13,7 @@
         <?php 
             $servername = "localhost";
             $username = "root"; // Mysql username
-            $password = "1234";	// Mysql Password
+            $password = "";	// Mysql Password
 
             $dbname = "csirt";	// database name
             
