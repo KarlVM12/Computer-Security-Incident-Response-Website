@@ -48,10 +48,10 @@
            
             if ($result2->num_rows >  0) {
                 // output data of each row
+                echo "<h3>Comments</h3><br>";
                 while($row = $result2->fetch_assoc()) {
-                    echo "commentID: ". $row["commentID"] . " - incidentID: " . $row["incidentID"] . 
-                    " - commentDescription: " . $row["commentDescription"] . " - commentDate: " . $row["commentDate"] .
-                    " - handlerName: " . $row["handlerName"] . "<br>";
+                    echo $row["commentDate"]."<br>".$row["handlerName"]."<br>"
+                    .$_POST["commentDescription"]."<br><br>";
                 }
             } else {
                 echo "0 results";
