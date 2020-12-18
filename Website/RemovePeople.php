@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Modify Report - People</title>
     </head>
     <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
         <hr>
-        <h3>Modify an Incident Report - Remove People</h3>
+        <div class="content">
+        <h3 class="content-title">Modify an Incident Report - Remove People</h3>
 
-        <p> Removing Person with Association ID <?php echo $_POST["associationID"]; ?> </p>
+        <p class="paragraph"> Removing Person with Association ID <?php echo $_POST["associationID"]; ?> </p>
 
         <?php 
             $servername = "localhost";
@@ -42,12 +46,12 @@
                 
                 $conn->close();
         ?>
-        <p>Removed!</p>
+        <p class="paragraph">Removed!</p>
         
         <br><hr>
         <form class="form" action="IncidentReports.html">
             <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
-        
+        </div>
     </body>
 </html>
