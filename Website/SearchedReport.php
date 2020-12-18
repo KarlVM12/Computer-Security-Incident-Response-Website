@@ -55,7 +55,8 @@
                     $sqlpeopleIP = "SELECT IPAddress FROM ipaddress where incidentID =".$_POST["incidentID"]." and associationID = ".$row["associationID"];
                     $IPresult = $conn->query($sqlpeopleIP);
                     $IP = $IPresult->fetch_assoc();
-                    echo $IP["IPAddress"]."<br>";
+
+                    echo " ".$IP["IPAddress"]."<br><br>";
                 }
             } else {
                 echo "0 results";
