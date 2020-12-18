@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Modify Report - IP Addresses</title>
         <link rel="stylesheet" type="text/css" href="styles.css"></link>
