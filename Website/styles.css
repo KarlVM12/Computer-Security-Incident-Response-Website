@@ -18,7 +18,7 @@
 
 /*Body styles*/
 .body {
-  background-color: #1c1c1c;
+  background-color: rgb(66, 66, 66);
 }
 
 .title {
@@ -42,7 +42,7 @@
 
 .form {
   position: relative;
-  color: #61a6ff;
+  color: whitesmoke;
   font-family: "open sans";
   padding-top: 10px;
   text-decoration: underline;
@@ -72,4 +72,9 @@
   color: #0365e6;
   font-size: 16px;
   font-family: "Lucida sans";
+}
+
+.paragraph {
+  position: relative;
+  color: whitesmoke;
 }
