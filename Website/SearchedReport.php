@@ -32,7 +32,7 @@
             if ($result1->num_rows >  0) {
                 // output data of each row
                 while($row = $result1->fetch_assoc()) {
-                    echo "<h3>Incident ID # </h3>".$_POST["incidentID"]."<br>". 
+                    echo "<h3>Incident ID # ".$_POST["incidentID"]."</h3><br>". 
                     "Incident Created on: ".$row["creationDate"]."<br>". 
                     "Reason for Incident: ".$row["incidentType"]."<br>". 
                     "Incident Description: ".$row["incidentName"]."<br>". 
@@ -46,16 +46,24 @@
             // People Involved // ---------------------------------------------------------------
             $sqlpeople = "select * from incident join involvedperson on incident.incidentID=involvedperson.incidentid join person on person.associationID = involvedperson.associationID where incident.incidentid =".$_POST["incidentID"];
             $resultspeople = $conn->query($sqlpeople);
-            
+
             if ($resultspeople->num_rows >  0) {
                 echo "<h3>People Involved</h3>";
                 while($row = $resultspeople->fetch_assoc()) {
-                    echo "ID #: ".$row["associationID"]."<br>Name: ".$row["lastName"].", ".$row["firstName"]." Job:".$row["jobTitle"]." ".$row["emailAddress"];
+                    echo "ID #: ".$row["associationID"]."<br>Name: ".$row["lastName"].", ".$row["firstName"]."<br>".
+                    "Job: ".$row["jobTitle"]."<br>Email Address: ".$row["emailAddress"]."<br>";
 
                     $sqlpeopleIP = "SELECT IPAddress FROM ipaddress where incidentID =".$_POST["incidentID"]." and associationID = ".$row["associationID"];
                     $IPresult = $conn->query($sqlpeopleIP);
-                    $IP = $IPresult->fetch_assoc();
-                    echo " ".$IP["IPAddress"]."<br><br>";
+
+                    if ($IPresult->num_rows >  0) {
+                        $IP = $IPresult->fetch_assoc();
+                        echo "IP Address: ".$IP["IPAddress"];
+                    } else {
+                        echo "No Associated IP Address";
+                    }
+                    
+                    echo "<br><br>";
                 }
             } else {
                 echo "<h3>No People Involved</h3>";
