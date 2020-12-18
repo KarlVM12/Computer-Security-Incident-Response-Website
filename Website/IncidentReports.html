@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
+    <div class="header">
+        <h1 class="logo">CSIRT</h1>
+    </div>
     <head>
         <title>Computer Security Incident Response Team Website</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h4>What do you want to do?</h4>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+            <h4 class="content-title">What do you want to do?</h4>
 
-        <form action="ReportRequest.html">
-            <input type="submit" value="Request Incident Report"><br>
-        </form>
+            <form class="form" action="ReportRequest.html">
+                <input class="user-submit" type="submit" value="Request Incident Report"><br>
+            </form>
 
-        <form action="NewReport.html">
-            <input type="submit" value="Record New Incident Report"><br>
-        </form>
+            <form class="form" action="NewReport.html">
+                <input class="user-submit" type="submit" value="Record New Incident"><br>
+            </form>
 
-        <form action="ModifyReport.html">
-            <input type="submit" value="Modfiy an Incident Report"><br>
-        </form>
-        
-        <form action="EmailReport.html">
-            <input type="submit" value="Email A Report"><br>
-        </form>
-        
+            <form class="form" action="ModifyReport.html">
+                <input class="user-submit" type="submit" value="Modfiy an Incident"><br>
+            </form>
+            
+            <form class="form" action="EmailReport.html">
+                <input class="user-submit" type="submit" value="Email A Report"><br>
+            </form>
+        </div>
     </body>
 </html>
