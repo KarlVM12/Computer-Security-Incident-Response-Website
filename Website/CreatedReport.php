@@ -1,14 +1,18 @@
 <!DOCTYPE html>
+<div class="header">
+	<h1 class="logo">CSIRT</h1>
+</div>
 <html>
     <head>
         <title>New Report - Creating A New Report</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
     </head>
-    <body>
-        <h1>Computer Security Incident Response Team Reports</h1>
-        <hr>
-        <h3>Creating A New Report - Making A New Report</h3>
+    <body class="body">
+        <h1 class="title">Computer Security Incident Response Team Reports</h1>
+        <div class="content">
+        <h3 class="content-title">Creating A New Report - Making A New Report</h3>
 
-        <p> Making A New Report : Incident # <?php echo $_POST["incidentID"]; ?></p>
+        <p class="paragraph"> Making A New Report : Incident # <?php echo $_POST["incidentID"]; ?></p>
 
         <?php 
             $servername = "localhost";
@@ -49,8 +53,8 @@
             
             $conn->close();
         ?>
-        <p>Added!</p>
-        <br><hr>
+        <p class="paragraph">Added!</p>
+        <br>
         <form class="form" action="IncidentReports.html">
             <input class="user-submit" type="submit" value="Main Page"><br>
         </form>
